@@ -1,0 +1,147 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue";
+    background-color: #f4f4f5;
+}
+
+body > div{
+    margin: auto;
+}
+
+
+#toast{
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 9999; /*tranh bi thang khac de` len*/
+}
+
+.toast{
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    min-width: 400px;
+    max-width: 450px;
+    padding: 20px 0px;
+    border-radius: 2px;
+    border-left: 4px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); 
+    /* animation: ShowAlert ease .8s, CloseAlert linear 1s 3s forwards;  */
+    /*3s la gia tri delay*/
+
+    transition: all linear.3s; /*remove js*/
+}
+
+@keyframes ShowAlert{
+    from{
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));  
+        /*muon an het toast thi + them 32px set right 32px tren #toast*/
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes CloseAlert{ 
+    to{
+        opacity: 0;
+    }
+}
+
+.toast + .toast{
+    margin-top: 24px;
+}
+.toast__icon, .toast__close{
+    padding: 0px 16px;
+}
+.toast__icon{
+    font-size: 24px;
+}
+.toast__body{
+    flex-grow: 1 ;
+}
+.toast__title{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+.toast__msg{
+    font-size: 14px;
+    color: #888;
+    margin-top: 6px; 
+    line-height: 1.4;
+}
+.toast__close{
+    font-size: 20px;
+    color: #333;
+    opacity: 0.4;
+    cursor: pointer;
+}
+.toast__close:hover{
+    opacity: 1;
+}
+
+.toast--Success{
+    border-color: #47d864;
+}
+.toast--Info{
+    border-color: #2f86eb;
+}
+.toast--Error{
+    border-color: #ffc021;
+}
+ 
+.toast--Success .toast__icon{
+    color: #47d864;
+}
+
+.toast--Info .toast__icon{
+    color: #2f86eb;
+}
+.toast--Error .toast__icon{
+    color: #ffc021;
+}
+
+
+
+
+/* Button */
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    min-width: 120px;
+    transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+   opacity: 0.8;
+}
+  
+.btn + .btn {
+    margin-left: 16px;
+}
+.btn--success {
+    background-color: #71be34;
+}
+
+.btn--danger {
+    background-color: #ff623d;
+}
